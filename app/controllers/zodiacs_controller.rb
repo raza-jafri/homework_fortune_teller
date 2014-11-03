@@ -70,4 +70,19 @@ class ZodiacsController < ApplicationController
 
     render 'fish'
   end
+
+  def sign
+    @sign = params[:the_sign]
+    z = Zodiac.find_by({:sign => params[:the_sign]})
+    @prediction = z.fortune
+    render 'whatever'
+  end
+
+  def creature
+    @creature = params[:the_creature]
+    c = Zodiac.find_by({:creature => params[:the_creature]})
+    @prediction = c.fortune
+    render 'yahoo'
+  end
+
 end
